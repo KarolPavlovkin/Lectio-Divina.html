@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prehrávač - XI Pon</title>
     <style>
-        body {
+        body { 
+            /* Crucial for mobile: ensures it takes up the full screen height */
+            min-height: 100vh; 
+            min-height: 100dvh; /* Dynamic viewport height (fixes mobile address bar jumps) */
             font-family: Arial, sans-serif;
             text-align: center;
-            background-image: url("../../Pictura/6._Pia.jpg");
+            background-image: url("../../Pictura/11._Ned.jpg");
+            /* Ensures the image covers the whole screen without distortion */
+            background-size: cover;
+            /* Keeps the image centered */
+            background-position: center center;
+            /* Fixes the image in place so content scrolls over it */
+            background-attachment: fixed;
             padding: 20px;
         }
         .player-container {

@@ -3,25 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prehrávač - Vzor Lectio</title>
+    <title>Prehrávač - Ps._L</title>
     <style>
-        body { 
-            /* Crucial for mobile: ensures it takes up the full screen height */
-            min-height: 100vh; 
-            min-height: 100dvh; /* Dynamic viewport height (fixes mobile address bar jumps) */
+        body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-image: url("../assets/pictura/11._Ned.jpg");
-            /* Ensures the image covers the whole screen without distortion */
-            background-size: cover;
-            /* Keeps the image centered */
-            background-position: center center;
-            /* Fixes the image in place so content scrolls over it */
-            background-attachment: fixed;
+            background-image: url("../assets/pictura/?.jpg");
             padding: 20px;
         }
         .player-container {
-            background: white;
+            background: #DAC4BD;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
@@ -50,17 +41,18 @@
 <body>
 
 <div class="player-container">
-    <img src="../assets/pictura/?.jpg" alt="Obrázok by mal byť aktuálny">
+    <img src="../assets/pictura/Ps._L.jpg" alt="Ilustrácia k žalmu">
     
-    <h2>Súradnice čítania</h2>
+    
+    <h2>Psalmus L - Miserere Mei, Deus</h2>
 
     <audio controls preload="auto">
-        <source src="../assets/audio/?.m4a" type="audio/mp4">
+        <source src="../audio/Ps. L - Miserere Mei, Deus.mp3" type="audio/mp3">
         toto.
     </audio>
     
     <br>
-    <a href="../Lectio-Divina.html" class="back-btn">⬅ Späť na prehľad</a>
+    <a href="../Opus-Dei.html" class="back-btn">⬅ Vade retro</a>
 </div>
 
 </body>

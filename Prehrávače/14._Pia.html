@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prehrávač - XIV. Ven</title>
+    <style>
+        body { 
+            /* Crucial for mobile: ensures it takes up the full screen height */
+            min-height: 100vh; 
+            min-height: 100dvh; /* Dynamic viewport height (fixes mobile address bar jumps) */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url("../assets/pictura/11._Ned.jpg");
+            /* Ensures the image covers the whole screen without distortion */
+            background-size: cover;
+            /* Keeps the image centered */
+            background-position: center center;
+            /* Fixes the image in place so content scrolls over it */
+            background-attachment: fixed;
+            padding: 20px;
+        }
+        .player-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+            display: inline-block;
+            max-width: 90%;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="player-container">
+    <img src="../assets/pictura/XIV._Ven.jpg" alt="Dávid a žena pred jeho trónom">
+    
+    <h2>II. Kniha Samuelova 23-24</h2>
+    <h2>Príslovia 20</h2>
+
+    <audio controls preload="auto">
+        <source src="../assets/audio/14._Pia_1.m4a" type="audio/mp4">
+        toto.
+    </audio>
+
+    <audio controls preload="auto">
+        <source src="../assets/audio/14._Pia_2.m4a" type="audio/mp4">
+        toto.
+    </audio>
+
+    <audio controls preload="auto">
+        <source src="../assets/audio/14._Pia_3.m4a" type="audio/mp4">
+        toto.
+    </audio>
+
+  
+    <br>
+    <a href="../index.html" class="back-btn">⬅ Späť na prehľad</a>
+</div>
+
+</body>
+</html>

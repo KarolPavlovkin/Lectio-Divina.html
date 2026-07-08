@@ -332,7 +332,7 @@ lib.properties = {
 	color: "#FF0000",
 	opacity: 0.00,
 	manifest: [
-		{src:"images/background.jpg?1783528891599", id:"background"},
+		{src:"images/background.jpg?1783528891599", id:"_3_Steps"},
 		{src:"images/3_steps2_atlas_1.png?1783528891570", id:"3_steps2_atlas_1"}
 	],
 	preloads: []

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prehrávač - XV. Lun</title>
+    <style>
+        body { 
+            /* Crucial for mobile: ensures it takes up the full screen height */
+            min-height: 100vh; 
+            min-height: 100dvh; /* Dynamic viewport height (fixes mobile address bar jumps) */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url("../assets/pictura/XV._Lun.jpg");
+            /* Ensures the image covers the whole screen without distortion */
+            background-size: cover;
+            /* Keeps the image centered */
+            background-position: center center;
+            /* Fixes the image in place so content scrolls over it */
+            background-attachment: fixed;
+            padding: 20px;
+        }
+        .player-container {
+            background-image: url("../assets/pictura/Mramor.jpg");
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+            display: inline-block;
+            max-width: 90%;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between; /* This pushes left to the left, right to the right */
+            align-items: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        /* Shared style for both navigation buttons */
+        .nav-btn {
+            text-decoration: none;
+            color: #C46E6E
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Explicit alignment just to be completely safe */
+        .btn-left {
+            text-align: left;
+        }
+
+        .btn-right {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+<div class="player-container">
+    <img src="../assets/pictura/XV._Lun.jpg" alt="Dávid a žena pred jeho trónom">
+    
+    <h2>I. Kniha Kráľov 3-4</h2>
+    <h2>Príslovia 21</h2>
+
+    <audio controls preload="auto">
+        <source src="../assets/audio/15._Pon_1.m4a" type="audio/mp4">
+        toto.
+    </audio>
+
+   <audio controls preload="auto">
+        <source src="../assets/audio/15._Pon_2.m4a" type="audio/mp4">
+        toto.
+    </audio>  
+    <br>
+    <a href="../Lectio-Divina.html" class="back-btn">⬅ Späť na prehľad</a>
+</div>
+
+</body>
+</html>

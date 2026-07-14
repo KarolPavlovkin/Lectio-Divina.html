@@ -73,6 +73,24 @@
         <a id="next-btn" href="Ps._VIII.html".html" class="nav-btn btn-right">▃▅▇ ▶</a>
     </div>
 </div>
+<script>
+    const audio = document.getElementById('my-audio');
+    const nextButton = document.getElementById('next-btn');
+
+    // 1. Play audio automatically when the page is opened
+    window.addEventListener('DOMContentLoaded', () => {
+        audio.play().catch(error => {
+            console.log("Autoplay blocked. It will start playing once you interact with the page once.");
+        });
+    });
+
+    // 2. Go to the next page when the audio ends
+    audio.addEventListener('ended', function() {
+        if (nextButton) {
+            nextButton.click();
+        }
+    });
+</script>
 
 </body>
 </html>

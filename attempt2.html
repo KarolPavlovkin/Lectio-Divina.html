@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evangeliarum</title>
+    <style>
+        /* Base Dark Medieval styling */
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #0d0907;
+            color: #d4af37; /* Warm Gold */
+            font-family: 'Georgia', 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        /* Central Layout Wrapper */
+        .evangelium-container {
+            display: grid;
+            grid-template-areas: 
+                ".       top     ."
+                "left    center  right"
+                ".       bottom  .";
+            grid-template-columns: minmax(150px, 1fr) auto minmax(150px, 1fr);
+            grid-template-rows: auto auto auto;
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        /* The Holy Icon wrapper */
+        .center-image {
+            grid-area: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .center-image img {
+            max-height: 400px;
+            width: auto;
+            border: 3px solid #d4af37;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+            border-radius: 4px;
+        }
+
+        /* Gospel Category blocks */
+        .gospel-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(18, 14, 11, 0.85);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .gospel-title {
+            font-size: 1.4rem;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #f1e5c2;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+            padding-bottom: 5px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Grid for Roman numerals */
+        .chapters-grid {
+            display: grid;
+            gap: 6px 10px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* Horizontal/Vertical specific adjustments */
+        .top-block { grid-area: top; max-width: 800px; }
+        .top-block .chapters-grid { grid-template-columns: repeat(10, 1fr); }
+
+        .bottom-block { grid-area: bottom; max-width: 800px; }
+        .bottom-block .chapters-grid { grid-template-columns: repeat(8, 1fr); }
+
+        .left-block { grid-area: left; }
+        .left-block .chapters-grid { grid-template-columns: repeat(4, 1fr); }
+
+        .right-block { grid-area: right; }
+        .right-block .chapters-grid { grid-template-columns: repeat(4, 1fr); }
+
+        /* Hyperlink styling */
+        .chapters-grid a {
+            color: #bfa15f;
+            text-decoration: none;
+            font-size: 0.95rem;
+            text-align: center;
+            padding: 3px;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+        }
+
+        .chapters-grid a:hover {
+            color: #ffffff;
+            background-color: rgba(212, 175, 55, 0.25);
+            transform: scale(1.15);
+            text-shadow: 0 0 5px #fff;
+        }
+
+        /* Mobile Optimization (Collapses cleanly to vertical stacks) */
+        @media (max-width: 850px) {
+            .evangelium-container {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
+            .center-image {
+                order: 1; /* Pushes image below Matúš on mobile, or keep at 0 for top */
+            }
+            .top-block { order: 0; }
+            .left-block { order: 2; }
+            .right-block { order: 3; }
+            .bottom-block { order: 4; }
+            .top-block .chapters-grid,
+            .bottom-block .chapters-grid,
+            .left-block .chapters-grid,
+            .right-block .chapters-grid {
+                grid-template-columns: repeat(7, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="evangelium-container">
+        
+        <!-- CENTER: The Holy Icon -->
+        <div class="center-image">
+            <!-- Referencing your image location directly -->
+            <img src="assets/pictura/Evangeliarum3.jpg" alt="Ježiš Kristus">
+        </div>
+
+        <!-- TOP: Matúš (28 chapters) -->
+        <div class="gospel-block top-block">
+            <h2 class="gospel-title">Matúš</h2>
+            <div class="chapters-grid">
+                <a href="Matus-I.html">I</a><a href="Matus-II.html">II</a><a href="Matus-III.html">III</a><a href="Matus-IV.html">IV</a><a href="Matus-V.html">V</a>
+                <a href="Matus-VI.html">VI</a><a href="Matus-VII.html">VII</a><a href="Matus-VIII.html">VIII</a><a href="Matus-IX.html">IX</a><a href="Matus-X.html">X</a>
+                <a href="Matus-XI.html">XI</a><a href="Matus-XII.html">XII</a><a href="Matus-XIII.html">XIII</a><a href="Matus-XIV.html">XIV</a><a href="Matus-XV.html">XV</a>
+                <a href="Matus-XVI.html">XVI</a><a href="Matus-XVII.html">XVII</a><a href="Matus-XVIII.html">XVIII</a><a href="Matus-XIX.html">XIX</a><a href="Matus-XX.html">XX</a>
+                <a href="Matus-XXI.html">XXI</a><a href="Matus-XXII.html">XXII</a><a href="Matus-XXIII.html">XXIII</a><a href="Matus-XXIV.html">XXIV</a><a href="Matus-XXV.html">XXV</a>
+                <a href="Matus-XXVI.html">XXVI</a><a href="Matus-XXVII.html">XXVII</a><a href="Matus-XXVIII.html">XXVIII</a>
+            </div>
+        </div>
+
+        <!-- LEFT: Marek (16 chapters) -->
+        <div class="gospel-block left-block">
+            <h2 class="gospel-title">Marek</h2>
+            <div class="chapters-grid">
+                <a href="Marek-I.html">I</a><a href="Marek-II.html">II</a><a href="Marek-III.html">III</a><a href="Marek-IV.html">IV</a>
+                <a href="Marek-V.html">V</a><a href="Marek-VI.html">VI</a><a href="Marek-VII.html">VII</a><a href="Marek-VIII.html">VIII</a>
+                <a href="Marek-IX.html">IX</a><a href="Marek-X.html">X</a><a href="Marek-XI.html">XI</a><a href="Marek-XII.html">XII</a>
+                <a href="Marek-XIII.html">XIII</a><a href="Marek-XIV.html">XIV</a><a href="Marek-XV.html">XV</a><a href="Marek-XVI.html">XVI</a>
+            </div>
+        </div>
+
+        <!-- RIGHT: Ján (21 chapters) -->
+        <div class="gospel-block right-block">
+            <h2 class="gospel-title">Ján</h2>
+            <div class="chapters-grid">
+                <a href="Jan-I.html">I</a><a href="Jan-II.html">II</a><a href="Jan-III.html">III</a><a href="Jan-IV.html">IV</a>
+                <a href="Jan-V.html">V</a><a href="Jan-VI.html">VI</a><a href="Jan-VII.html">VII</a><a href="Jan-VIII.html">VIII</a>
+                <a href="Jan-IX.html">IX</a><a href="Jan-X.html">X</a><a href="Jan-XI.html">XI</a><a href="Jan-XII.html">XII</a>
+                <a href="Jan-XIII.html">XIII</a><a href="Jan-XIV.html">XIV</a><a href="Jan-XV.html">XV</a><a href="Jan-XVI.html">XVI</a>
+                <a href="Jan-XVII.html">XVII</a><a href="Jan-XVIII.html">XVIII</a><a href="Jan-XIX.html">XIX</a><a href="Jan-XX.html">XX</a>
+                <a href="Jan-XXI.html">XXI</a>
+            </div>
+        </div>
+
+        <!-- BOTTOM: Lukáš (24 chapters) -->
+        <div class="gospel-block bottom-block">
+            <h2 class="gospel-title">Lukáš</h2>
+            <div class="chapters-grid">
+                <a href="Lukas-I.html">I</a><a href="Lukas-II.html">II</a><a href="Lukas-III.html">III</a><a href="Lukas-IV.html">IV</a><a href="Lukas-V.html">V</a><a href="Lukas-VI.html">VI</a><a href="Lukas-VII.html">VII</a><a href="Lukas-VIII.html">VIII</a>
+                <a href="Lukas-IX.html">IX</a><a href="Lukas-X.html">X</a><a href="Lukas-XI.html">XI</a><a href="Lukas-XII.html">XII</a><a href="Lukas-XIII.html">XIII</a><a href="Lukas-XIV.html">XIV</a><a href="Lukas-XV.html">XV</a><a href="Lukas-XVI.html">XVI</a>
+                <a href="Lukas-XVII.html">XVII</a><a href="Lukas-XVIII.html">XVIII</a><a href="Lukas-XIX.html">XIX</a><a href="Lukas-XX.html">XX</a><a href="Lukas-XXI.html">XXI</a><a href="Lukas-XXII.html">XXII</a><a href="Lukas-XXIII.html">XXIII</a><a href="Lukas-XXIV.html">XXIV</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

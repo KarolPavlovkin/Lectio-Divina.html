@@ -5,35 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evangeliarum</title>
     <style>
-        /* Base Dark Medieval styling */
+        /* Base Dark Medieval styling with deep reddish background */
         html, body {
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            background-color: #0d0907;
+            /* Rich, deep blood-red to dark charcoal radial gradient */
+            background: radial-gradient(circle, #2b0808 0%, #0d0303 100%);
             color: #d4af37; /* Warm Gold */
             font-family: 'Georgia', 'Times New Roman', serif;
             display: flex;
             justify-content: center;
             align-items: center;
             box-sizing: border-box;
+            /* Allow scrollbars if the fixed-size cross is wider/taller than the screen */
+            overflow: auto; 
         }
 
-        /* Central Layout Wrapper */
+        /* Central Layout Wrapper - FORCED FIXED CROSS LAYOUT */
         .evangelium-container {
             display: grid;
             grid-template-areas: 
                 ".       top     ."
                 "left    center  right"
                 ".       bottom  .";
-            grid-template-columns: minmax(150px, 1fr) auto minmax(150px, 1fr);
+            /* Fixed columns to prevent breaking the cross shape on Android */
+            grid-template-columns: 280px 320px 280px;
             grid-template-rows: auto auto auto;
             gap: 20px;
-            max-width: 1200px;
-            width: 100%;
-            padding: 20px;
+            width: 920px; /* Locked width to guarantee the cross layout on any screen */
+            padding: 40px 20px;
             align-items: center;
             justify-items: center;
+            margin: auto;
         }
 
         /* The Holy Icon wrapper */
@@ -45,23 +49,23 @@
         }
 
         .center-image img {
-            max-height: 400px;
+            max-height: 320px; /* Slightly adjusted to fit nicely within the fixed grid */
             width: auto;
             border: 3px solid #d4af37;
             box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
             border-radius: 4px;
         }
 
-        /* Gospel Category blocks */
+        /* Gospel Category blocks with darker, red-tinted translucent backgrounds */
         .gospel-block {
             display: flex;
             flex-direction: column;
             align-items: center;
-            background: rgba(18, 14, 11, 0.85);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            background: rgba(22, 11, 11, 0.9); /* Dark reddish-black */
+            border: 1px solid rgba(212, 175, 55, 0.25);
             padding: 15px;
             border-radius: 6px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
             width: 100%;
             box-sizing: border-box;
         }
@@ -86,18 +90,36 @@
             width: 100%;
         }
 
-        /* Horizontal/Vertical specific adjustments */
-        .top-block { grid-area: top; max-width: 800px; }
-        .top-block .chapters-grid { grid-template-columns: repeat(10, 1fr); }
+        /* Horizontal/Vertical locked specific adjustments */
+        .top-block { 
+            grid-area: top; 
+            width: 100%;
+        }
+        .top-block .chapters-grid { 
+            grid-template-columns: repeat(7, 1fr); 
+        }
 
-        .bottom-block { grid-area: bottom; max-width: 800px; }
-        .bottom-block .chapters-grid { grid-template-columns: repeat(8, 1fr); }
+        .bottom-block { 
+            grid-area: bottom; 
+            width: 100%;
+        }
+        .bottom-block .chapters-grid { 
+            grid-template-columns: repeat(6, 1fr); 
+        }
 
-        .left-block { grid-area: left; }
-        .left-block .chapters-grid { grid-template-columns: repeat(4, 1fr); }
+        .left-block { 
+            grid-area: left; 
+        }
+        .left-block .chapters-grid { 
+            grid-template-columns: repeat(4, 1fr); 
+        }
 
-        .right-block { grid-area: right; }
-        .right-block .chapters-grid { grid-template-columns: repeat(4, 1fr); }
+        .right-block { 
+            grid-area: right; 
+        }
+        .right-block .chapters-grid { 
+            grid-template-columns: repeat(4, 1fr); 
+        }
 
         /* Hyperlink styling */
         .chapters-grid a {
@@ -116,28 +138,6 @@
             transform: scale(1.15);
             text-shadow: 0 0 5px #fff;
         }
-
-        /* Mobile Optimization (Collapses cleanly to vertical stacks) */
-        @media (max-width: 850px) {
-            .evangelium-container {
-                display: flex;
-                flex-direction: column;
-                gap: 30px;
-            }
-            .center-image {
-                order: 1; /* Pushes image below Matúš on mobile, or keep at 0 for top */
-            }
-            .top-block { order: 0; }
-            .left-block { order: 2; }
-            .right-block { order: 3; }
-            .bottom-block { order: 4; }
-            .top-block .chapters-grid,
-            .bottom-block .chapters-grid,
-            .left-block .chapters-grid,
-            .right-block .chapters-grid {
-                grid-template-columns: repeat(7, 1fr);
-            }
-        }
     </style>
 </head>
 <body>
@@ -146,7 +146,6 @@
         
         <!-- CENTER: The Holy Icon -->
         <div class="center-image">
-            <!-- Referencing your image location directly -->
             <img src="assets/pictura/Evangeliarum3.jpg" alt="Ježiš Kristus">
         </div>
 

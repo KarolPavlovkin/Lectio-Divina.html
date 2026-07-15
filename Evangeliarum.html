@@ -14,12 +14,28 @@
             background: radial-gradient(circle, #2b0808 0%, #0d0303 100%);
             color: #d4af37; /* Warm Gold */
             font-family: 'Georgia', 'Times New Roman', serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             box-sizing: border-box;
-            /* Allow scrollbars if the fixed-size cross is wider/taller than the screen */
-            overflow: auto; 
+        }
+
+        /* NEW Scroll Wrapper:
+           This acts as the viewport. On mobile, it starts at the far left (showing Marek),
+           allowing you to scroll right to see the rest.
+        */
+        .scroll-wrapper {
+            display: flex;
+            justify-content: flex-start; /* Aligns to the left on small screens to prevent cutting off Marek */
+            width: 100%;
+            min-height: 100vh;
+            overflow-x: auto; /* Enables horizontal scrolling */
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+
+        /* On larger screens, center the cross perfectly */
+        @media (min-width: 960px) {
+            .scroll-wrapper {
+                justify-content: center;
+            }
         }
 
         /* Central Layout Wrapper - FORCED FIXED CROSS LAYOUT */
@@ -34,10 +50,17 @@
             grid-template-rows: auto auto auto;
             gap: 20px;
             width: 920px; /* Locked width to guarantee the cross layout on any screen */
-            padding: 40px 20px;
+            padding: 20px;
             align-items: center;
             justify-items: center;
-            margin: auto;
+            /* Keeps the container vertically centered within the scroll wrapper */
+            margin: auto 0; 
+        }
+
+        @media (min-width: 960px) {
+            .evangelium-container {
+                margin: auto; /* Centered both ways on large screens */
+            }
         }
 
         /* The Holy Icon wrapper */
@@ -142,60 +165,57 @@
 </head>
 <body>
 
-    <div class="evangelium-container">
-        
-        <!-- CENTER: The Holy Icon -->
-        <div class="center-image">
-            <img src="assets/pictura/Evangeliarum3.jpg" alt="Ježiš Kristus">
-        </div>
-
-        <!-- TOP: Matúš (28 chapters) -->
-        <div class="gospel-block top-block">
-            <h2 class="gospel-title">Matúš</h2>
-            <div class="chapters-grid">
-                <a href="Matus-I.html">I</a><a href="Matus-II.html">II</a><a href="Matus-III.html">III</a><a href="Matus-IV.html">IV</a><a href="Matus-V.html">V</a>
-                <a href="Matus-VI.html">VI</a><a href="Matus-VII.html">VII</a><a href="Matus-VIII.html">VIII</a><a href="Matus-IX.html">IX</a><a href="Matus-X.html">X</a>
-                <a href="Matus-XI.html">XI</a><a href="Matus-XII.html">XII</a><a href="Matus-XIII.html">XIII</a><a href="Matus-XIV.html">XIV</a><a href="Matus-XV.html">XV</a>
-                <a href="Matus-XVI.html">XVI</a><a href="Matus-XVII.html">XVII</a><a href="Matus-XVIII.html">XVIII</a><a href="Matus-XIX.html">XIX</a><a href="Matus-XX.html">XX</a>
-                <a href="Matus-XXI.html">XXI</a><a href="Matus-XXII.html">XXII</a><a href="Matus-XXIII.html">XXIII</a><a href="Matus-XXIV.html">XXIV</a><a href="Matus-XXV.html">XXV</a>
-                <a href="Matus-XXVI.html">XXVI</a><a href="Matus-XXVII.html">XXVII</a><a href="Matus-XXVIII.html">XXVIII</a>
+    <div class="scroll-wrapper">
+        <div class="evangelium-container">
+            
+            <div class="center-image">
+                <img src="assets/pictura/Evangeliarum3.jpg" alt="Ježiš Kristus">
             </div>
-        </div>
 
-        <!-- LEFT: Marek (16 chapters) -->
-        <div class="gospel-block left-block">
-            <h2 class="gospel-title">Marek</h2>
-            <div class="chapters-grid">
-                <a href="Marek-I.html">I</a><a href="Marek-II.html">II</a><a href="Marek-III.html">III</a><a href="Marek-IV.html">IV</a>
-                <a href="Marek-V.html">V</a><a href="Marek-VI.html">VI</a><a href="Marek-VII.html">VII</a><a href="Marek-VIII.html">VIII</a>
-                <a href="Marek-IX.html">IX</a><a href="Marek-X.html">X</a><a href="Marek-XI.html">XI</a><a href="Marek-XII.html">XII</a>
-                <a href="Marek-XIII.html">XIII</a><a href="Marek-XIV.html">XIV</a><a href="Marek-XV.html">XV</a><a href="Marek-XVI.html">XVI</a>
+            <div class="gospel-block top-block">
+                <h2 class="gospel-title">Matúš</h2>
+                <div class="chapters-grid">
+                    <a href="Matus-I.html">I</a><a href="Matus-II.html">II</a><a href="Matus-III.html">III</a><a href="Matus-IV.html">IV</a><a href="Matus-V.html">V</a>
+                    <a href="Matus-VI.html">VI</a><a href="Matus-VII.html">VII</a><a href="Matus-VIII.html">VIII</a><a href="Matus-IX.html">IX</a><a href="Matus-X.html">X</a>
+                    <a href="Matus-XI.html">XI</a><a href="Matus-XII.html">XII</a><a href="Matus-XIII.html">XIII</a><a href="Matus-XIV.html">XIV</a><a href="Matus-XV.html">XV</a>
+                    <a href="Matus-XVI.html">XVI</a><a href="Matus-XVII.html">XVII</a><a href="Matus-XVIII.html">XVIII</a><a href="Matus-XIX.html">XIX</a><a href="Matus-XX.html">XX</a>
+                    <a href="Matus-XXI.html">XXI</a><a href="Matus-XXII.html">XXII</a><a href="Matus-XXIII.html">XXIII</a><a href="Matus-XXIV.html">XXIV</a><a href="Matus-XXV.html">XXV</a>
+                    <a href="Matus-XXVI.html">XXVI</a><a href="Matus-XXVII.html">XXVII</a><a href="Matus-XXVIII.html">XXVIII</a>
+                </div>
             </div>
-        </div>
 
-        <!-- RIGHT: Ján (21 chapters) -->
-        <div class="gospel-block right-block">
-            <h2 class="gospel-title">Ján</h2>
-            <div class="chapters-grid">
-                <a href="Jan-I.html">I</a><a href="Jan-II.html">II</a><a href="Jan-III.html">III</a><a href="Jan-IV.html">IV</a>
-                <a href="Jan-V.html">V</a><a href="Jan-VI.html">VI</a><a href="Jan-VII.html">VII</a><a href="Jan-VIII.html">VIII</a>
-                <a href="Jan-IX.html">IX</a><a href="Jan-X.html">X</a><a href="Jan-XI.html">XI</a><a href="Jan-XII.html">XII</a>
-                <a href="Jan-XIII.html">XIII</a><a href="Jan-XIV.html">XIV</a><a href="Jan-XV.html">XV</a><a href="Jan-XVI.html">XVI</a>
-                <a href="Jan-XVII.html">XVII</a><a href="Jan-XVIII.html">XVIII</a><a href="Jan-XIX.html">XIX</a><a href="Jan-XX.html">XX</a>
-                <a href="Jan-XXI.html">XXI</a>
+            <div class="gospel-block left-block">
+                <h2 class="gospel-title">Marek</h2>
+                <div class="chapters-grid">
+                    <a href="Marek-I.html">I</a><a href="Marek-II.html">II</a><a href="Marek-III.html">III</a><a href="Marek-IV.html">IV</a>
+                    <a href="Marek-V.html">V</a><a href="Marek-VI.html">VI</a><a href="Marek-VII.html">VII</a><a href="Marek-VIII.html">VIII</a>
+                    <a href="Marek-IX.html">IX</a><a href="Marek-X.html">X</a><a href="Marek-XI.html">XI</a><a href="Marek-XII.html">XII</a>
+                    <a href="Marek-XIII.html">XIII</a><a href="Marek-XIV.html">XIV</a><a href="Marek-XV.html">XV</a><a href="Marek-XVI.html">XVI</a>
+                </div>
             </div>
-        </div>
 
-        <!-- BOTTOM: Lukáš (24 chapters) -->
-        <div class="gospel-block bottom-block">
-            <h2 class="gospel-title">Lukáš</h2>
-            <div class="chapters-grid">
-                <a href="Lukas-I.html">I</a><a href="Lukas-II.html">II</a><a href="Lukas-III.html">III</a><a href="Lukas-IV.html">IV</a><a href="Lukas-V.html">V</a><a href="Lukas-VI.html">VI</a><a href="Lukas-VII.html">VII</a><a href="Lukas-VIII.html">VIII</a>
-                <a href="Lukas-IX.html">IX</a><a href="Lukas-X.html">X</a><a href="Lukas-XI.html">XI</a><a href="Lukas-XII.html">XII</a><a href="Lukas-XIII.html">XIII</a><a href="Lukas-XIV.html">XIV</a><a href="Lukas-XV.html">XV</a><a href="Lukas-XVI.html">XVI</a>
-                <a href="Lukas-XVII.html">XVII</a><a href="Lukas-XVIII.html">XVIII</a><a href="Lukas-XIX.html">XIX</a><a href="Lukas-XX.html">XX</a><a href="Lukas-XXI.html">XXI</a><a href="Lukas-XXII.html">XXII</a><a href="Lukas-XXIII.html">XXIII</a><a href="Lukas-XXIV.html">XXIV</a>
+            <div class="gospel-block right-block">
+                <h2 class="gospel-title">Ján</h2>
+                <div class="chapters-grid">
+                    <a href="Jan-I.html">I</a><a href="Jan-II.html">II</a><a href="Jan-III.html">III</a><a href="Jan-IV.html">IV</a>
+                    <a href="Jan-V.html">V</a><a href="Jan-VI.html">VI</a><a href="Jan-VII.html">VII</a><a href="Jan-VIII.html">VIII</a>
+                    <a href="Jan-IX.html">IX</a><a href="Jan-X.html">X</a><a href="Jan-XI.html">XI</a><a href="Jan-XII.html">XII</a>
+                    <a href="Jan-XIII.html">XIII</a><a href="Jan-XIV.html">XIV</a><a href="Jan-XV.html">XV</a><a href="Jan-XVI.html">XVI</a>
+                    <a href="Jan-XVII.html">XVII</a><a href="Jan-XVIII.html">XVIII</a><a href="Jan-XIX.html">XIX</a><a href="Jan-XX.html">XX</a>
+                    <a href="Jan-XXI.html">XXI</a>
+                </div>
             </div>
-        </div>
 
+            <div class="gospel-block bottom-block">
+                <h2 class="gospel-title">Lukáš</h2>
+                <div class="chapters-grid">
+                    <a href="Lukas-I.html">I</a><a href="Lukas-II.html">II</a><a href="Lukas-III.html">III</a><a href="Lukas-IV.html">IV</a><a href="Lukas-V.html">V</a><a href="Lukas-VI.html">VI</a><a href="Lukas-VII.html">VII</a><a href="Lukas-VIII.html">VIII</a>
+                    <a href="Lukas-IX.html">IX</a><a href="Lukas-X.html">X</a><a href="Lukas-XI.html">XI</a><a href="Lukas-XII.html">XII</a><a href="Lukas-XIII.html">XIII</a><a href="Lukas-XIV.html">XIV</a><a href="Lukas-XV.html">XV</a><a href="Lukas-XVI.html">XVI</a>
+                    <a href="Lukas-XVII.html">XVII</a><a href="Lukas-XVIII.html">XVIII</a><a href="Lukas-XIX.html">XIX</a><a href="Lukas-XX.html">XX</a><a href="Lukas-XXI.html">XXI</a><a href="Lukas-XXII.html">XXII</a><a href="Lukas-XXIII.html">XXIII</a><a href="Lukas-XXIV.html">XXIV</a>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 </body>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lectio Divina</title>
+    <style>
+        /* Reset margins and set full screen height */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #0d0d0d;
+            overflow: hidden;
+        }
+
+        /* Container using the background image */
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100%;
+            background-image: url('3_Steps.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Three equal vertical sections */
+        .step {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Headings styling */
+        .step h1 {
+            margin: 0;
+            padding: 0;
+            font-size: clamp(1.8rem, 5vw, 3rem); /* Responsive text size */
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        /* Link behavior */
+        .step a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 15px 30px;
+            transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        /* --- STEP 1: Fiery Step (Top) --- */
+        .step-fiery a {
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 10px rgba(255, 68, 0, 0.4);
+        }
+        .step-fiery a:hover {
+            color: #ffcc00; /* Warm gold highlight */
+            transform: scale(1.05);
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+        }
+
+        /* --- STEP 2: Ash-Grey Step (Middle) --- */
+        .step-ash a {
+            color: #e5e5e5;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+        }
+        .step-ash a:hover {
+            color: #a3c2c2; /* Slate/cold grey highlight */
+            transform: scale(1.05);
+        }
+
+        /* --- STEP 3: White Marble Step (Bottom) --- */
+        .step-marble a {
+            color: #1a1a1a; /* Dark text to contrast with the white marble */
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+        }
+        .step-marble a:hover {
+            color: #595959; /* Soft charcoal highlight */
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="step step-fiery">
+            <h1><a href="Evangeliarum.html">Evangeliarum</a></h1>
+        </div>
+
+        <div class="step step-ash">
+            <h1><a href="Opus-Dei.html">Psalmus</a></h1>
+        </div>
+
+        <div class="step step-marble">
+            <h1><a href="Lectio-Divina.html">Lectio Divina</a></h1>
+        </div>
+    </div>
+
+</body>
+</html>

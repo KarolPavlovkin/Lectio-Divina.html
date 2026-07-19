@@ -115,7 +115,7 @@ def generate_weekly_files():
         )
         
         # Build the exact output filename (e.g., "XVI._Sol.html")
-        filename = f"{ROMAN_WEEK}._{day['roman']}.html"
+        filename = f"{ARABIC_WEEK}._{day['arabic']}.html"
         
         with open(filename, "w", encoding="utf-8") as f:
             f.write(file_content)

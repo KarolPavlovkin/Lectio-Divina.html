@@ -1,4 +1,4 @@
-/* style.css */
+/* scriptura.css */
 
 body { 
     min-height: 100vh; 
@@ -32,26 +32,10 @@ audio {
     margin-top: 10px;
 }
 
-.button-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-    width: 100%;
-}
-
-.nav-btn {
-    text-decoration: none;
-    /* Changed to warm charcoal so your buttons don't look purple/blue! */
-    color: #423F3C; 
-    font-weight: bold;
-    font-size: 16px; 
-}
-
-.btn-left {
-    text-align: left;
-}
-
-.btn-right {
-    text-align: right;
-}
+.back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #A9A9A9;
+            font-weight: bold;
+        }

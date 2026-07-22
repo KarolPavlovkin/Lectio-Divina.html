@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prehrávač - {roman}. {secundum}</title>
+
+    <!-- 1. Link to your shared CSS file -->
+    <link rel="stylesheet" href="../css/evangeliarum.css">
+
+    <!-- 2. The ONLY page-specific style left behind -->
+    <style>
+        body { background-image: url("../assets/pictura/{bg_image}.jpg"); }
+    </style>
+</head>
+
+<body>
+
+<div class="player-container">
+    <img src="../assets/pictura/{roman}._{secundum}.jpg" alt="Ad Dei Gloriam">
+    
+    <h2>{arabic}. kapitola evanjelia podľa sv. {podla}</h2>
+
+    <audio controls preload="auto">
+        <source src="../assets/audio/{mtmklkjn}_{arabic}.m4a" type="audio/mp4">
+        toto.
+    </audio>
+    
+    <br>
+    <a href="../Lectio-Divina.html" class="back-btn">◀ ▃▅▇ </a>
+</div>
+
+</body>
+</html>

@@ -5,33 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evangeliarum</title>
     <style>
-        /* Base Dark Medieval styling with deep reddish background */
+        /* Base Dark Medieval styling */
         html, body {
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            /* Rich, deep blood-red to dark charcoal radial gradient */
-            background: radial-gradient(circle, #2b0808 0%, #0d0303 100%);
+            /* Charcoal/Dark backdrop for the 4 outer quadrants */
+            background-color: #0a0303; 
             color: #d4af37; /* Warm Gold */
             font-family: 'Georgia', 'Times New Roman', serif;
             box-sizing: border-box;
         }
 
-        /* NEW Scroll Wrapper:
-           This acts as the viewport. On mobile, it starts at the far left (showing Marek),
-           allowing you to scroll right to see the rest.
-        */
+        /* NEW Scroll Wrapper with Background Red Cross */
         .scroll-wrapper {
+            position: relative;
             display: flex;
-            justify-content: flex-start; /* Aligns to the left on small screens to prevent cutting off Marek */
+            justify-content: flex-start;
             width: 100%;
             min-height: 100vh;
-            overflow-x: auto; /* Enables horizontal scrolling */
+            overflow-x: auto;
             overflow-y: auto;
             padding: 20px 0;
+            box-sizing: border-box;
         }
 
-        /* On larger screens, center the cross perfectly */
+        /* 
+           Background Cross Construction:
+           ::before creates the Horizontal Red Beam
+           ::after creates the Vertical Red Beam
+        */
+        .scroll-wrapper::before,
+        .scroll-wrapper::after {
+            content: "";
+            position: absolute;
+            /* Deep blood-red gradient for the cross body */
+            background: radial-gradient(circle, #4a0d0d 0%, #2b0808 70%, #1a0404 100%);
+            z-index: 0; /* Keeps the cross BEHIND the text and images */
+            pointer-events: none;
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Horizontal Beam of the Cross (spans left to right behind Marek & Ján) */
+        .scroll-wrapper::before {
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 380px; /* Sized to cushion the left/right blocks and icon */
+            transform: translateY(-50%);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* Vertical Beam of the Cross (spans top to bottom behind Matúš & Lukáš) */
+        .scroll-wrapper::after {
+            left: 50%;
+            top: 0;
+            width: 380px; /* Sized to cushion the top/bottom blocks and icon */
+            height: 100%;
+            transform: translateX(-50%);
+            border-left: 1px solid rgba(212, 175, 55, 0.2);
+            border-right: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
         @media (min-width: 960px) {
             .scroll-wrapper {
                 justify-content: center;
@@ -40,26 +76,26 @@
 
         /* Central Layout Wrapper - FORCED FIXED CROSS LAYOUT */
         .evangelium-container {
+            position: relative;
+            z-index: 1; /* Places interactive elements ABOVE the background cross */
             display: grid;
             grid-template-areas: 
                 ".       top     ."
                 "left    center  right"
                 ".       bottom  .";
-            /* Fixed columns to prevent breaking the cross shape on Android */
             grid-template-columns: 280px 320px 280px;
             grid-template-rows: auto auto auto;
             gap: 20px;
-            width: 920px; /* Locked width to guarantee the cross layout on any screen */
+            width: 920px;
             padding: 20px;
             align-items: center;
             justify-items: center;
-            /* Keeps the container vertically centered within the scroll wrapper */
             margin: auto 0; 
         }
 
         @media (min-width: 960px) {
             .evangelium-container {
-                margin: auto; /* Centered both ways on large screens */
+                margin: auto;
             }
         }
 
@@ -72,25 +108,26 @@
         }
 
         .center-image img {
-            max-height: 320px; /* Slightly adjusted to fit nicely within the fixed grid */
+            max-height: 320px;
             width: auto;
             border: 3px solid #d4af37;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
             border-radius: 4px;
         }
 
-        /* Gospel Category blocks with darker, red-tinted translucent backgrounds */
+        /* Gospel Category blocks with translucent backgrounds showing the red cross underneath */
         .gospel-block {
             display: flex;
             flex-direction: column;
             align-items: center;
-            background: rgba(22, 11, 11, 0.9); /* Dark reddish-black */
-            border: 1px solid rgba(212, 175, 55, 0.25);
+            background: rgba(15, 5, 5, 0.85); /* Darkened slightly to keep Roman numerals legible */
+            border: 1px solid rgba(212, 175, 55, 0.35);
             padding: 15px;
             border-radius: 6px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
             width: 100%;
             box-sizing: border-box;
+            backdrop-filter: blur(2px);
         }
 
         .gospel-title {
@@ -157,7 +194,7 @@
 
         .chapters-grid a:hover {
             color: #ffffff;
-            background-color: rgba(212, 175, 55, 0.25);
+            background-color: rgba(212, 175, 55, 0.35);
             transform: scale(1.15);
             text-shadow: 0 0 5px #fff;
         }

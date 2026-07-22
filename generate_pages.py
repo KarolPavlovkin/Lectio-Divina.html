@@ -104,6 +104,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </html>"""
 
 def generate_weekly_files():
+    output_dir="Prehrávače"
+    
     for day in DAYS:
         # Dynamically inject the week numbers and specific day components
         file_content = HTML_TEMPLATE.format(

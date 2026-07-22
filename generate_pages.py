@@ -81,17 +81,17 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <h2>II. Kniha Samuelova 15-16</h2>
     <h2>Príslovia 12</h2>
 
-    <audio id="audio-1" controls preload="auto" autoplay>
+    <audio id="audio-1" controls preload="auto">
         <source src="../assets/audio/{arabic_week}._{arabic_day}_1.m4a" type="audio/mp4">
         toto.
     </audio>
 
-    <audio id="audio-2" controls preload="auto" autoplay>
+    <audio id="audio-2" controls preload="auto">
         <source src="../assets/audio/{arabic_week}._{arabic_day}_2.m4a" type="audio/mp4">
         toto.
     </audio>
 
-    <audio id="audio-3" controls preload="auto" autoplay>
+    <audio id="audio-3" controls preload="auto">
         <source src="../assets/audio/{arabic_week}._{arabic_day}_3.m4a" type="audio/mp4">
         toto.
     </audio>

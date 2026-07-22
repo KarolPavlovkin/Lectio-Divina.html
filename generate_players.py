@@ -83,6 +83,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 """
 
 def generate_all_players():
+    output_dir = "Prehrávače"
     total_created = 0
 
     for gospel in GOSPELS:

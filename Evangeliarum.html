@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evangeliarum</title>
     <style>
-        /* Base Dark Medieval styling */
+/* Base Dark Medieval styling */
 html, body {
     margin: 0;
     padding: 0;
@@ -14,7 +14,7 @@ html, body {
     color: #d4af37;
     font-family: 'Georgia', 'Times New Roman', serif;
     box-sizing: border-box;
-    overflow-x: hidden; /* Prevents horizontal scroll breaking the cross */
+    overflow-x: hidden;
 }
 
 /* Page Wrapper with Dynamic Red Cross */
@@ -25,14 +25,11 @@ html, body {
     align-items: center;
     width: 100%;
     min-height: 100vh;
-    padding: 20px 10px;
+    padding: 10px;
     box-sizing: border-box;
 }
 
-/* 
-   Background Cross:
-   Uses % relative sizes so it stays perfectly aligned on screens of ANY size.
-*/
+/* Background Cross Beams */
 .scroll-wrapper::before,
 .scroll-wrapper::after {
     content: "";
@@ -43,12 +40,12 @@ html, body {
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.9);
 }
 
-/* Horizontal Beam */
+/* Horizontal Beam — Shifted up to 38% for traditional Christian cross placement */
 .scroll-wrapper::before {
-    top: 50%;
+    top: 38%; 
     left: 0;
     width: 100%;
-    height: clamp(220px, 35vh, 380px); /* Scales down fluidly on small screens */
+    height: clamp(200px, 32vh, 360px);
     transform: translateY(-50%);
     border-top: 1px solid rgba(212, 175, 55, 0.2);
     border-bottom: 1px solid rgba(212, 175, 55, 0.2);
@@ -58,14 +55,14 @@ html, body {
 .scroll-wrapper::after {
     left: 50%;
     top: 0;
-    width: clamp(260px, 75vw, 380px); /* Scales proportionally to mobile width */
+    width: clamp(260px, 75vw, 380px);
     height: 100%;
     transform: translateX(-50%);
     border-left: 1px solid rgba(212, 175, 55, 0.2);
     border-right: 1px solid rgba(212, 175, 55, 0.2);
 }
 
-/* Central Layout Wrapper */
+/* Central Layout Wrapper — Adjusted Row Proportions */
 .evangelium-container {
     position: relative;
     z-index: 1;
@@ -74,18 +71,20 @@ html, body {
         ".       top     ."
         "left    center  right"
         ".       bottom  .";
-    /* Dynamic scaling columns instead of fixed pixels */
     grid-template-columns: minmax(80px, 1fr) minmax(140px, 320px) minmax(80px, 1fr);
-    grid-template-rows: auto auto auto;
+    /* Top row gets less vertical space, bottom gets more space */
+    grid-template-rows: min-content min-content 1fr;
     gap: 10px;
     width: 100%;
     max-width: 920px;
     align-items: center;
     justify-items: center;
     box-sizing: border-box;
+    /* Pulls entire container slightly upwards */
+    margin-top: -30px; 
 }
 
-/* Central Image Adjustments for Mobile */
+/* Central Image Adjustments */
 .center-image {
     grid-area: center;
     display: flex;
@@ -95,7 +94,7 @@ html, body {
 }
 
 .center-image img {
-    max-height: clamp(160px, 30vh, 320px); /* Scales smaller on Android screens */
+    max-height: clamp(140px, 26vh, 280px);
     width: auto;
     max-width: 100%;
     border: 3px solid #d4af37;
@@ -108,7 +107,7 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(15, 5, 5, 0.9);
+    background: rgba(15, 5, 5, 0.92);
     border: 1px solid rgba(212, 175, 55, 0.35);
     padding: 8px;
     border-radius: 6px;
@@ -118,13 +117,13 @@ html, body {
 }
 
 .gospel-title {
-    font-size: clamp(0.9rem, 3vw, 1.4rem);
-    margin: 0 0 6px 0;
+    font-size: clamp(0.85rem, 2.8vw, 1.3rem);
+    margin: 0 0 4px 0;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: #f1e5c2;
     border-bottom: 1px solid rgba(212, 175, 55, 0.4);
-    padding-bottom: 3px;
+    padding-bottom: 2px;
     width: 100%;
     text-align: center;
 }
@@ -137,22 +136,26 @@ html, body {
     width: 100%;
 }
 
-/* Column behavior on smaller viewports */
+/* Column behavior */
 .top-block { grid-area: top; width: 100%; }
 .top-block .chapters-grid { grid-template-columns: repeat(7, 1fr); }
 
-.bottom-block { grid-area: bottom; width: 100%; }
+.bottom-block { 
+    grid-area: bottom; 
+    width: 100%; 
+    align-self: start; /* Holds Lukáš right under the central intersection */
+    margin-top: 10px;
+}
 .bottom-block .chapters-grid { grid-template-columns: repeat(6, 1fr); }
 
 .left-block { grid-area: left; width: 100%; }
-.left-block .chapters-grid { grid-template-columns: repeat(2, 1fr); } /* 2 cols on mobile for left arm */
+.left-block .chapters-grid { grid-template-columns: repeat(2, 1fr); }
 
 .right-block { grid-area: right; width: 100%; }
-.right-block .chapters-grid { grid-template-columns: repeat(2, 1fr); } /* 2 cols on mobile for right arm */
+.right-block .chapters-grid { grid-template-columns: repeat(2, 1fr); }
 
-/* On Desktop screens, expand side blocks to 4 columns */
 @media (min-width: 768px) {
-    .gospel-block { padding: 15px; }
+    .gospel-block { padding: 12px; }
     .chapters-grid { gap: 6px 10px; }
     .left-block .chapters-grid,
     .right-block .chapters-grid { 
@@ -177,20 +180,28 @@ html, body {
     text-shadow: 0 0 5px #fff;
 }
 
+/* Back button pinned to top-left overlay so it doesn't push cross down */
 .back-btn {
-            display: inline-block;
-            margin-top: 20px;
-            text-decoration: none;
-            color: #780606;
-            font-weight: bold;
-        }
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 10;
+    text-decoration: none;
+    color: #d4af37;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    background: rgba(10, 3, 3, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 4px;
+}
     </style>
 </head>
 <body>
 
-    <a href="index.html" class="back-btn">◀ ▃▅▇ </a>
-
     <div class="scroll-wrapper">
+        <a href="index.html" class="back-btn">◀ ▃▅▇ </a>
+
         <div class="evangelium-container">
             
             <div class="center-image">

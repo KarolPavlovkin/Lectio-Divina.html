@@ -22,55 +22,13 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prehrávač - {roman_week}. {roman_day}</title>
+
+     <!-- 1. Link to your shared CSS file -->
+    <link rel="stylesheet" href="../css/scriptura.css">
+
+    <!-- 2. The ONLY page-specific style left behind -->
     <style>
-        body {{ 
-            min-height: 100vh; 
-            min-height: 100dvh;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-image: url("../assets/pictura/{bg_image}");
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-            padding: 20px;
-        }}
-        .player-container {{
-            background-image: url("../assets/pictura/Mramor.jpg");
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-            display: inline-block;
-            max-width: 90%;
-        }}
-        img {{
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }}
-        audio {{
-            width: 100%;
-            margin-top: 10px;
-        }}
-        .button-group {{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            width: 100%;
-        }}
-        .nav-btn {{
-            text-decoration: none;
-            color: #36454F;
-            font-weight: bold;
-            font-size: 14px;
-        }}
-        .btn-left {{
-            text-align: left;
-        }}
-        .btn-right {{
-            text-align: right;
-        }}
+        body { background-image: url("../assets/pictura/{roman_week}._{roman_day}.jpg"); }
     </style>
 </head>
 <body>

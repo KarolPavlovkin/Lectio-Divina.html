@@ -2,8 +2,8 @@ import os
 
 # --- CONFIGURATION FOR THE WEEK ---
 # Change these two variables every Saturday before running the script
-ROMAN_WEEK = "XVI"    # The current week in Roman numerals
-ARABIC_WEEK = "16"    # The current week in Arabic numerals
+ROMAN_WEEK = "XVII"    # The current week in Roman numerals
+ARABIC_WEEK = "17"    # The current week in Arabic numerals
 
 # --- STATIC MAPPINGS ---
 DAYS = [
@@ -28,7 +28,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
     <!-- 2. The ONLY page-specific style left behind -->
     <style>
-        body { background-image: url("../assets/pictura/{roman_week}._{roman_day}.jpg"); }
+        body {{ background-image: url("../assets/pictura/{roman_week}._{roman_day}.jpg"); }}
     </style>
 </head>
 <body>

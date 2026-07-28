@@ -1,2 +1,3 @@
 toto je skúška:
 1. Upraviť si stránku, aby všetko išlo, aby bola up-to-date.
+Zapísať si a poslať p. Dekyskej video o vytváraní interaktívnej animácie.
